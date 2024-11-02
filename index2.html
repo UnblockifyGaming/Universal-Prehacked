@@ -1165,6 +1165,40 @@
             
             // Initialize the Mod Menu
             new PaperclipsModMenu();
+
+            // Create and style the button
+const button = document.createElement("button");
+button.innerText = "Additional cheats";
+button.style.position = "fixed";
+button.style.bottom = "20px";
+button.style.left = "50%";
+button.style.transform = "translateX(-50%)";
+button.style.backgroundColor = "orange";
+button.style.color = "black";
+button.style.border = "2px solid white";
+button.style.padding = "10px 20px";
+button.style.fontSize = "16px";
+button.style.cursor = "pointer";
+button.style.zIndex = "1000"; // Ensure it appears above other elements
+
+// Append the button to the body
+document.body.appendChild(button);
+
+// Add a click event listener to the button
+button.addEventListener("click", () => {
+  alert("Type commands");
+  const userCommand = prompt("Enter your JavaScript command:");
+  if (userCommand) {
+    try {
+      eval(userCommand); // Execute the user's command
+    } catch (error) {
+      console.error("Error executing command:", error);
+      alert("There was an error with your command. Check the console for details.");
+    }
+  }
+});
+
             </script>
+
     </body>
 </html>
